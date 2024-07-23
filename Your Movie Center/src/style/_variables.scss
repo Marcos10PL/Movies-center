@@ -1,0 +1,18 @@
+$font: "Roboto", sans-serif;
+$bg-color: #272727;
+$text-color: #CECECE;
+$bg-overlay-primary: #0c0c0cb6;
+$bg-overlay-secondary: #521c5c94;
+
+%overlay
+{
+  position: absolute;
+  opacity: 0;
+  background-color: $bg-overlay-primary;
+  left: 0;
+  right: 0;
+  font-size: 1.3rem;
+  padding: 5px;
+  text-align: center;
+  transition: all .2s ease-in-out;
+}

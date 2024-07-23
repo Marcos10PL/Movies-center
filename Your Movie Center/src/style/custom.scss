@@ -1,0 +1,20 @@
+$theme-colors: 
+(
+  'primary': #52165C,
+  'secondary': #F7B690,
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@import 'variables';
+
+.form-control:focus 
+{
+  border-color: map-get($theme-colors, 'secondary'); 
+  box-shadow: none;
+}
+
+.form-control
+{
+  background-color: $bg-color;
+}
