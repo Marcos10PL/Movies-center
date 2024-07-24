@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { Alert, Container, Row, Col, Form, Button } from 'react-bootstrap';
 
-function AlertName() 
+function AlertName({ name, setName }) 
 {
   const nameRef = useRef();
-  const [name, setName] = useState();
+  const [showAlert, setShowAlert] = useState(true);
   const [error, setError] = useState('Enter your name...');
 
-  useEffect(() => {
-    const nameLS = localStorage.getItem('NAME');
-    nameLS && setName(nameLS);
+  useLayoutEffect(() => 
+  {
+    const showAlert = localStorage.getItem('ALERT');
+    showAlert && setShowAlert(false);
   }, []);
 
-  function handleSetName()
+  const handleSetName = () =>
   {
     const input = nameRef.current.value;
     if(input)
@@ -23,15 +24,25 @@ function AlertName()
     else
       setError('You must enter your name...');
   }
-  //localStorage.removeItem('NAME');
+
+  const handleSetShowAlert = () =>
+  {
+    setShowAlert(false);
+    localStorage.setItem('ALERT', false);
+  }
+
   return (
-    <Alert 
-      className='m-0 text-center py-3' 
+    showAlert && (
+      <Alert 
+      className='m-0 text-center py-3 rounded-0' 
       variant='secondary'
       dismissible
     >
       {name ? (
-        <p className='fs-5 m-0'>Hello, {name}!</p>
+        <>
+          <p className='fs-5 m-0'>Hello, {name}!</p>
+          <a href='#' className='link-primary text-decoration-none' onClick={(handleSetShowAlert)}>[don't show again]</a>
+        </>
       ) : (
         <Container>
           <Row>
@@ -56,6 +67,7 @@ function AlertName()
         </Container>
       )}
     </Alert>
+    )
   );
 }
 
