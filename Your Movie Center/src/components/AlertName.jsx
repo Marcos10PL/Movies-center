@@ -34,7 +34,7 @@ function AlertName({ name, setName })
   return (
     showAlert && (
       <Alert 
-      className='m-0 text-center py-3 rounded-0' 
+      className='m-0 text-center py-3 container m-auto mt-4' 
       variant='secondary'
       dismissible
     >
