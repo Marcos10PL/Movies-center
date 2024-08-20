@@ -8,44 +8,19 @@ import MovieList from './components/MovieList';
 import './style/custom.scss'
 import './style/index.scss';
 import Footer from './components/Footer';
+import useLocalStorage from './myHooks/useLocalStorage';
 
 function App() 
 {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [favouriteMovies, setFavouriteMovies] = useState([]);
-  const [name, setName] = useState();
-  const [showInfo, setShowInfo] = useState(true);
+  const [favouriteMovies, setFavouriteMovies] = useLocalStorage('FAVMOVIES', []);
+  const [name, setName] = useLocalStorage('NAME', '');
+  const [showInfo, setShowInfo] = useLocalStorage('INFO', true);
 
-  useLayoutEffect(() => 
-  {
-    if(!name)
-    {
-      const nameLS = localStorage.getItem('NAME');
-      nameLS && setName(nameLS);
-    }
-
-    if(showInfo)
-    {
-      const infoLS = localStorage.getItem('INFO');
-      infoLS && setShowInfo(false);
-    }
-
-    if(name)
-    {
-      const favMoviesJSON = JSON.stringify(favouriteMovies);
-      localStorage.setItem('MOVIES', favMoviesJSON);
-    }
-
-    const favMovies = localStorage.getItem('MOVIES');
-    if(favMovies)
-    {
-      const favMoviesArray = JSON.parse(favMovies);
-      setFavouriteMovies(favMoviesArray);
-    }
-
-  }, [favouriteMovies.length, name])
-
+  useLayoutEffect(() => { 
+    name === '' && setFavouriteMovies([]) 
+  }, []);
 
   useEffect(() => 
   {

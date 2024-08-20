@@ -6,7 +6,7 @@ function Footer()
   {
     localStorage.removeItem('NAME');
     localStorage.removeItem('ALERT');
-    localStorage.removeItem('MOVIES');
+    localStorage.removeItem('FAVMOVIES');
     localStorage.removeItem('INFO');
     location.reload();
   }

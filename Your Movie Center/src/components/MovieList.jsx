@@ -9,12 +9,6 @@ function MovieList({ movies, header, handleFavouriteMovies, showInfo, setShowInf
 {
   const carouselRef = useRef();
   const [showButtons, setShowButtons] = useState(false);
-
-  const handlSetShowInfo = () =>
-  {
-    localStorage.setItem('INFO', false);
-    setShowInfo(false);
-  }
   
   const scroll = x => 
     carouselRef.current.scrollBy({ left: (x * 300), behavior: 'smooth' });
@@ -44,7 +38,7 @@ function MovieList({ movies, header, handleFavouriteMovies, showInfo, setShowInf
                   <a 
                     href="#" 
                     className='link-secondary text-decoration-none' 
-                    onClick={handlSetShowInfo}
+                    onClick={() => setShowInfo(false)}
                   >
                     [don't show again]
                   </a>

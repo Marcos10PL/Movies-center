@@ -1,34 +1,22 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { Alert, Container, Row, Col, Form, Button } from 'react-bootstrap';
+import useLocalStorage from '../myHooks/useLocalStorage';
 
 function AlertName({ name, setName }) 
 {
-  const nameRef = useRef();
-  const [showAlert, setShowAlert] = useState(true);
-  const [error, setError] = useState('Enter your name...');
+  localStorage.removeItem('INFO')
 
-  useLayoutEffect(() => 
-  {
-    const showAlert = localStorage.getItem('ALERT');
-    showAlert && setShowAlert(false);
-  }, []);
+  const nameRef = useRef();
+  const [showAlert, setShowAlert] = useLocalStorage('ALERT', true);
+  const [error, setError] = useState('Enter your name...');
 
   const handleSetName = () =>
   {
     const input = nameRef.current.value;
     if(input)
-    {
       setName(input);
-      localStorage.setItem('NAME', input);
-    } 
     else
       setError('You must enter your name...');
-  }
-
-  const handleSetShowAlert = () =>
-  {
-    setShowAlert(false);
-    localStorage.setItem('ALERT', false);
   }
 
   return (
@@ -38,10 +26,15 @@ function AlertName({ name, setName })
       variant='secondary'
       dismissible
     >
-      {name ? (
+      {name !== '' ? (
         <>
           <p className='fs-5 m-0'>Hello, {name}!</p>
-          <a href='#' className='link-primary text-decoration-none' onClick={(handleSetShowAlert)}>[don't show again]</a>
+          <a 
+            href='#' 
+            className='link-primary text-decoration-none' 
+            onClick={() => setShowAlert(false)}>
+          [don't show again]
+          </a>
         </>
       ) : (
         <Container>
@@ -61,7 +54,7 @@ function AlertName({ name, setName })
               </Button>
             </Col>
             <Col md={6} className='d-flex align-items-center justify-content-center mb-2 mb-md-0'>
-              By entering your name, you save the list and agree to the use of cookies on this website.
+              By entering your name you can save the list.
             </Col>
           </Row>
         </Container>
