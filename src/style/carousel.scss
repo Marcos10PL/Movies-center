@@ -1,5 +1,3 @@
-@import 'variables';
-
 .carousel
 {
   position: relative;
@@ -19,8 +17,8 @@
     background: $bg-carousel-primary;
     border: none;
     color: #fff;
-    padding: 10px;
-    height: 80px;
+    padding: 0.625rem;
+    height: 5rem;
     cursor: pointer;
     border-radius: 10px;
     position: absolute;
@@ -30,21 +28,20 @@
 
     &.left 
     {
-      left: 15px;
+      left: 0.9rem;
     }
   
     &.right 
     {
-      right: 15px;
+      right: 0.9rem;
     }
   }
 
   &-slide
   {
-    margin: 20px 12px; 
-    min-width: 220px;
-    max-width: 220px;
-    height: 330px;
+    margin: 1.25rem 0.75rem; 
+    min-width: 13.75rem;
+    height: 20rem;
     position: relative;
     transition: all .2s ease-in-out;
     overflow: hidden;
@@ -68,7 +65,7 @@
       left: 0;
       right: 0;
       font-size: 1.3rem;
-      padding: 5px;
+      padding: .4rem;
       text-align: center;
       transition: all .2s ease-in-out;
 
@@ -85,7 +82,7 @@
       &.button
       {
         background: $bg-carousel-secondary;
-        top: 40px;
+        top: 2.5rem;
         cursor: pointer;
 
         .fa-heart
@@ -121,13 +118,13 @@
   ::-webkit-scrollbar 
   {
     background-color: $bg-color;
-    height: 12px;
+    height: 0.75rem;
   }
 
   ::-webkit-scrollbar-thumb 
   {
     background-color: $bg-carousel-primary;
-    border-radius: 25px;
+    border-radius: 1.5rem;
   }
 
   ::-webkit-scrollbar-button 

@@ -6,8 +6,6 @@ $theme-colors:
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
-@import 'variables';
-
 .form-control:focus 
 {
   border-color: map-get($theme-colors, 'secondary'); 

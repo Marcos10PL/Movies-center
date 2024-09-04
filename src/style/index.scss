@@ -1,4 +1,7 @@
-@import 'variables';
+@use 'variables' as *;
+
+@import './custom';
+@import './carousel';
 
 body
 {
@@ -11,16 +14,16 @@ body
 .movie-list-header
 {
   font-size: 1.8rem;
-  padding: 5px 25px;
-  margin-top: 20px;
+  padding: .4rem 1.5rem;
+  margin-top: 1.25rem;
   text-shadow: 0 0 4px $secondary;
   text-align: center;
 }
 
 .movie-info
 {
-  margin: 30px auto;
-  padding: 40px 10px;
+  margin: 1.8rem auto;
+  padding: 2rem;
   font-size: 1.3rem;
   text-align: center;
   background-color: $bg-carousel-primary;

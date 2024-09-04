@@ -1,11 +1,9 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Alert, Container, Row, Col, Form, Button } from 'react-bootstrap';
 import useLocalStorage from '../myHooks/useLocalStorage';
 
 function AlertName({ name, setName }) 
 {
-  localStorage.removeItem('INFO')
-
   const nameRef = useRef();
   const [showAlert, setShowAlert] = useLocalStorage('ALERT', true);
   const [error, setError] = useState('Enter your name...');

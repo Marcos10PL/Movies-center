@@ -4,11 +4,11 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import MyNavbar from './components/MyNavbar';
 import AlertName from './components/AlertName';
 import MovieList from './components/MovieList';
-
-import './style/custom.scss'
-import './style/index.scss';
 import Footer from './components/Footer';
+
 import useLocalStorage from './myHooks/useLocalStorage';
+
+import './style/index.scss';
 
 function App() 
 {

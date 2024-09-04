@@ -3,7 +3,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Image} from "react-bootstrap";
 
 import noPoster from '../img/no-poster.png';
-import '../style/carousel.scss';
 
 function Movie({ movie, handleFavouriteMovies })
 {

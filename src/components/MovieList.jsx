@@ -60,7 +60,7 @@ function MovieList({ movies, header, handleFavouriteMovies, showInfo, setShowInf
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <button className="carousel-button right" onClick={() => scroll(1)}>
-            <FontAwesomeIcon icon={faChevronRight} />
+              <FontAwesomeIcon icon={faChevronRight} />
             </button>
           </>}
         </Container>
